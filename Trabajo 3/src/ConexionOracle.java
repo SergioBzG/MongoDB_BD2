@@ -1,6 +1,10 @@
 import java.sql.*;
 
 public class ConexionOracle {
+    private static final String HOST = "DESKTOP-9VLDUT1";
+    private static final String PORT = "1521";
+    private static final String USER = "cassandra";
+    private static final String PASSWORD = "pi3141592";
     public static Connection conectar() {
         Connection conn = null;
         System.out.println("Conectando a la base de datos...");
@@ -11,7 +15,7 @@ public class ConexionOracle {
         }
 
         try {
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@SP-INTEL-240-DECIMA:1522:xe", "jruedat", "sagitario10");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@" + HOST +":" + PORT + ":xe", USER, PASSWORD);
         } catch (Exception e) {
             System.out.println("No hay conexion con la base de datos");
         }
